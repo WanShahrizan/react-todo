@@ -4,12 +4,13 @@ const TodoListItem = require("./TodoListItem");
 
 import "./TodoList.css";
 
-function TodoList() {
-  let todoItem = ["Study", "Sleep", "Play", "Eat"];
+function TodoList({ todos = [{ text: "Hello" }] }) {
   return (
     <div className="list-wrapper">
       <NewTodoFormTwo />
-      <TodoListItem todoItem={todoItem} />
+      {todos.map((todo) => (
+        <TodoListItem todo={todo} />
+      ))}
     </div>
   );
 }
