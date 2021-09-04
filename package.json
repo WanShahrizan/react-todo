@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel public/index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha \"src/**/*.test.js\" --require @babel/register --recursive"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +16,13 @@
     "@babel/plugin-transform-runtime": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-react": "^7.14.5",
-    "parcel": "^2.0.0-rc.0"
+    "@babel/register": "^7.15.3",
+    "chai": "^4.3.4",
+    "fetch-mock": "^9.11.0",
+    "mocha": "^9.1.1",
+    "node-fetch": "^3.0.0",
+    "parcel": "^2.0.0-rc.0",
+    "sinon": "^11.1.2"
   },
   "dependencies": {
     "@babel/runtime": "^7.15.4",
