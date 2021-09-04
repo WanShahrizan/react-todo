@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import styled from "styled-components";
 const NewTodoFormTwo = require("./NewTodoForm2");
 const TodoListItem = require("./TodoListItem");
 import {
@@ -8,12 +9,15 @@ import {
   markTodoAsCompetedRequest,
 } from "./thunks";
 import {
-  getTodos,
   getTodosLoading,
   getCompleteTodos,
   getIncompleteTodos,
 } from "./selectors";
-import "./TodoList.css";
+
+const ListWrapper = styled.div`
+  max-width: 700px;
+  margin: auto;
+`;
 
 function TodoList({
   completeTodos,
@@ -28,7 +32,7 @@ function TodoList({
   }, []);
   const loadingMessage = <div>Loading todos...</div>;
   const content = (
-    <div className="list-wrapper">
+    <ListWrapper>
       <NewTodoFormTwo />
       <h3>Incomplete:</h3>
       {incompleteTodos.map((todo) => (
@@ -46,7 +50,7 @@ function TodoList({
           onCompletedPressed={onCompletedPressed}
         />
       ))}
-    </div>
+    </ListWrapper>
   );
   return isLoading ? loadingMessage : content;
 }
